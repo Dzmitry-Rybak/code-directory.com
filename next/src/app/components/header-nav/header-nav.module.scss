@@ -1,0 +1,212 @@
+.header {
+    position: relative;
+    background-color: white;
+    height: 40px;
+    padding: 0 30px;
+    box-shadow: 0 0 25px 0 black;
+    @media (max-width: 768px) {
+        padding: 0 10px;
+    }
+    @media (max-width: 576px) {
+        padding: 0 7px;
+    }
+    &__img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        @media (max-width: 576px) {
+            width: 30px;
+            height: 30px;
+            margin-right: 0px;
+        }
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    &__items {
+        display: flex;
+        max-width: 600px;
+        height: 40px;
+        align-items: center;
+        justify-content: space-between;
+        li {
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+            @media (max-width: 576px) {
+                text-align: center;
+                font-size: 9px;
+            }
+        }
+        @media (max-width: 576px) {
+            max-width: 500px;
+        }
+    }
+    &__wrapper__link {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__item {
+        position: relative;
+        button {
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+            @media (max-width: 576px) {
+                font-size: 9px;
+            }
+        }
+        &:hover,
+        &:hover .btn,
+        &:hover .header__link {
+        color: red;
+        }
+    }
+    &__link {
+        color: black;
+        text-decoration: none;
+        span {
+            font-size: 16px;
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+            @media (max-width: 576px) {
+                display: none;
+            }
+        }
+
+    }
+    &__login {
+        position: absolute;
+        right: 50px;
+        @media (max-width: 768px) {
+            position: static;
+        }
+    }
+}
+
+.active {
+    color: red;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    width: 40px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    span {
+        position: absolute;
+        transition: opacity 0.5s;
+        opacity: 1;
+        content: '';
+        top: 9px;
+        right: 0;
+        width: 30px;
+        height: 2px;
+        background-color: #000;
+        @media (max-width: 576px) {
+            width: 20px;
+            top: 6px;
+        }
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 2px;
+        background-color: #000;
+        animation: hideCrossBefore 0.5s forwards;
+        @media (max-width: 576px) {
+            width: 20px;
+        }
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        right: 0;
+        width: 30px;
+        height: 2px;
+        background-color: #000;
+        animation: hideCrossAfter 0.5s forwards;
+        @media (max-width: 576px) {
+            width: 20px;
+        }
+    }
+    @media (max-width: 992px) {
+        display: block;
+    }
+    @media (max-width: 768px) {
+        margin-left: 15px;
+    }
+    @media (max-width: 576px) {
+        margin-left: 0px;
+        width: 20px;
+        height: 14px;
+    }
+}
+.burger_active {
+    span {
+        background-color: red;
+        transition: opacity 0.3s;
+        opacity: 0;
+    }
+    &::before {
+        animation: showCrossBefore 0.5s forwards;
+        background-color: red;
+        top: 50%;
+    }
+    &::after {
+        background-color: red;
+        bottom: 50%;
+        animation: showCrossAfter 0.5s forwards;
+    }
+}
+
+@keyframes showCrossBefore {
+    from {
+      transform: rotate(0deg) translate(0, 0);
+    }
+    to {
+      transform: rotate(-45deg) translate(0, -50%);
+    }
+}
+
+@keyframes hideCrossBefore {
+    from {
+        transform: rotate(45deg) translate(0, 50%);
+      
+
+    }
+    to {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+
+@keyframes showCrossAfter {
+    from {
+      transform: rotate(0deg) translate(0, 0);
+    }
+    to {
+      transform: rotate(45deg) translate(0, 50%);
+    }
+}
+
+@keyframes hideCrossAfter {
+    from {
+        transform: rotate(-45deg) translate(0, -50%);
+      
+    }
+    to {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}

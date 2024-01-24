@@ -1,0 +1,82 @@
+@import './variables.module.scss';
+
+.button {
+    cursor: pointer;
+    color: #000;
+    margin-right: 20px;
+    position: relative;
+    font-size: 9px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em;
+    display: inline-block;
+    border-radius: 1em;
+    transition: all .2s;
+    border: none;
+    font-weight: 500;
+    background-color: $main-color;
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+    @media (max-width: 576px) {
+        margin-right: 8px;
+        font-size: 8px;
+    }
+    &__filter {
+        background-color: transparent;
+        border: 1px solid #000;
+        color: #fff;
+        &_active {
+            background-color: transparent;
+            border: 1px solid black;
+            transform: translateY(3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: #000;
+            &:hover {
+                transform: translateY(3px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                color: #000;
+            }
+            @media (max-width: 576px) {
+                padding: 5px;
+            }
+        }
+        &:hover {
+            transform: translateY(3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: #000;
+        }
+        @media (max-width: 992px) {
+            padding: 10px;
+        }
+        @media (max-width: 576px) {
+            padding: 5px;
+        }
+    }
+    &__disable {
+        background-color: grey;
+    }
+}
+
+.submit__button {
+    color: #000;
+    background-color: #fff;
+    transition: all .2s;
+    cursor: pointer;
+    height: 36px;
+    margin-top: 15px;
+    border-radius: 10px;
+    transform: translateY(2px);
+    box-shadow: 3px 3px 5px black;
+    width: 70%;
+    &:hover,&:focus {
+        transform: translateY(0);
+        box-shadow: 0px 0px 0px black;
+    }
+    @media (max-width: 768px) {
+        width: 150px;
+        height: 30px;
+    }
+}

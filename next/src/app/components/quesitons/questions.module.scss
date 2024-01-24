@@ -1,0 +1,54 @@
+@import '../../styles/variables.module.scss';
+
+.questions {
+    &__list {
+        height: 100vh;
+        overflow: auto;
+        padding: 15px;
+        text-align: justify;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #c2c2c2, #a3a3a3);
+        @media (max-width: 992px) {
+            width: 100%;
+            height: calc((var(--vh, 1vh) * 100) - 95px);
+            border-radius: 0px;
+        }
+        @media (max-width: 576px) {
+            height: calc((var(--vh, 1vh) * 100) - 88.5px);
+        }
+        p {
+            width: 95%;
+            line-height: 25px;
+            margin: 0 auto;
+        }
+    }
+    &__item {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px;
+        transition: all 0.2s;    
+        &:hover {
+            color: #EDE7D9
+        }
+        &_selected {
+            color: #EDE7D9
+        }
+        @media (max-width: 1200px) {
+            padding: 7px;
+        }
+        @media (max-width: 992) {
+            padding: 12px;
+        }
+        @media (max-width: 576px) {
+            font-size: 13px;
+        }
+    }
+}
+
+.repeat {
+    color: #FFEA00;
+}
+
+.memorized {
+    color: #556B2F;
+}

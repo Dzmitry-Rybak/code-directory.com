@@ -1,0 +1,51 @@
+.notfound {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  h2 {
+      font-size: 80px;
+      @media (max-width: 768px) {
+          font-size: 50px;
+      }
+      @media (max-width: 576px) {            
+          font-size: 30px;
+      }
+  }
+  h3 {
+      margin-top: 25px;
+      font-size: 30px;
+      @media (max-width: 576px) {
+          margin-top: 10px;
+          font-size: 20px;
+      }
+  }
+  &__img {
+      height: 80vh;
+      @media (max-width: 768px) {
+          height: 50vw;
+      }
+      
+      @media (max-width: 576px) {
+          
+      }
+  }
+  &__link {
+      font-size: 25px;
+      margin-top: 25px;
+      text-decoration: underline;
+      color: rgb(149, 154, 145);
+      @media (max-width: 768px) {
+          font-size: 20px;
+      }
+      @media (max-width: 576px) {
+          font-size: 20px;
+      }
+  }
+  &__descr {
+      margin-bottom: 30px;
+  }
+  @media (max-width: 576px) {
+      flex-direction: column;
+  }
+}

@@ -1,0 +1,45 @@
+.footer {
+    width: 100%;
+    background-color: white;
+    height: 40px;
+    padding: 0 30px;
+    box-shadow: 0px 0px 20px 0 black;
+    @media (max-width: 576px) {
+        padding: 0 20px;
+    }
+    &__wrapper {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        margin: 0 auto;
+        @media (max-width: 768px) {
+            width: 70%;
+        }
+        @media (max-width: 576px) {
+            width: 100%;
+        }
+    }
+    &__socialmedia {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        width: 100%;
+        img {
+            vertical-align: middle;
+        }
+        @media (max-width: 576px) {
+            
+            
+        }
+    }
+    &__mail {
+        font-size: 10px;
+    }
+    &__icon {
+        height: 30px;
+        @media (max-width: 576px) {
+            height: 25px;
+        }
+    }
+}
