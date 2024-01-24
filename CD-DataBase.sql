@@ -7877,9 +7877,9 @@ To delete a branch on a remote server, such as GitHub, you use the git push comm
 Role of a Pull Request:
 • Code Review: Allows other developers to review code before merging, reducing the likelihood of errors.
 • Discussion of Changes: Provides an opportunity to discuss proposed changes, suggest improvements, or ask questions.
-• Tracking Work: Serves as a clear history of who proposed what changes and how.
+• Tracking Work: Serves as a clear history of who proposed what changes and how.', '/img/git/pullrequest.png', 0),
 
-How to set up Git to use SSH keys?',
+('How to set up Git to use SSH keys?',
  'Using SSH keys in Git enhances security and convenience when working with remote repositories, providing a more secure way of authentication than entering a username and password every time you access a repository.', '/img/git/ssh.png', 0),
 
 ('How to Back Up a Git Repository?',
@@ -9914,7 +9914,7 @@ Python is a powerful and flexible programming language suitable for a wide range
  'A Python interpreter is a program that reads and executes code written in the Python programming language. Unlike compiled languages like C or C++, where code is first transformed into machine code and then executed by the processor, Python is an interpreted language, meaning the source code is executed directly without prior compilation.
 
 How the Python Interpreter Works:
-• The interpreter reads the Python program\'s source code, which can be entered interactively (in the command line) or run from a file.
+• The interpreter reads the Python program`s source code, which can be entered interactively (in the command line) or run from a file.
 • The source code is tokenized into tokens (lexemes) - basic language elements such as keywords, identifiers, literals.
 • After lexical analysis, the interpreter analyzes the syntax structure of the code, transforming the sequence of tokens into an Abstract Syntax Tree (AST).
 • The AST is compiled into bytecode. Bytecode is an intermediate representation of the code that is more optimized for execution but is machine-independent.
@@ -10613,7 +10613,7 @@ Examples of syntactic sugar in Python:
 2. Packing and unpacking:
 • Packing groups values into tuples.
 • Unpacking extracts values from iterable objects.
-3. Context managers with 'with':
+3. Context managers with `with`:
 • Provide an elegant way to manage resources.
 4. Ternary operator:
 • A compact form of writing conditional expressions.', '/img/python/sugar.png', 0),
