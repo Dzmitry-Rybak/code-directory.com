@@ -15,7 +15,7 @@ const Page404 = () => {
                     <h3>We can't seem to find the page you are looking for.</h3>
                     <Link href='/' className={styles.notfound__link}>Go back</Link> , or refresh your page.
                 </div>
-                <Image src='/not-found.png' alt='404 error' width={700} height={900} className={styles.notfound__img}/> 
+                <Image src='/not-found.png' alt='404 error' width={466} height={893} className={styles.notfound__img}/> 
             </div>
         </div>
     )

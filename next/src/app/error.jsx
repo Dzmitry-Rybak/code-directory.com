@@ -4,8 +4,6 @@ import { useEffect } from "react";
 import buttonsStyles from '@/app/styles/buttons.module.scss';
 
 export default function Error ({error, reset}) {
-    console.log('error: ', error);
-    console.log('reset: ', reset);
     useEffect(() => {
         // Optionally log the error to an error reporting service
         console.error(error);

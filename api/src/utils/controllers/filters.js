@@ -40,7 +40,8 @@ const postFilters = async (req,res) => {
             const {filter, array} = req.body;
             const programmingLanguage = `questions_${req.query.stack}_${req.query.language}`;
             
-            const query = `INSERT INTO user_question_marks (user_id, stack, ${filter}) VALUES ($1, $2, $3) ON CONFLICT (user_id, stack) DO UPDATE SET ${filter} = excluded.${filter}`;
+            const query = `INSERT INTO user_question_marks (user_id, stack, ${filter}) VALUES ($1, $2, $3) 
+    ON CONFLICT (user_id, stack) DO UPDATE SET ${filter} = COALESCE(excluded.${filter}, ARRAY[]::integer[])`;
             const values = [userId, programmingLanguage, array];
         
             const client =  await pool.connect();

@@ -28,14 +28,14 @@ const Footer = () => {
                             width='30'
                             height='30'/>
                     </Link>
-                    <Link href={patreon} target='_blank' rel="noopener noreferrer">
+                    {/* <Link href={patreon} target='_blank' rel="noopener noreferrer">
                         <Image 
                             src='/icons/donate.png'
                             alt="donate" 
                             className={styles.footer__icon}
                             width='30'
                             height='30'/>
-                    </Link>
+                    </Link> */}
                     <a href="mailto:codedirectoryapp@gmail.com" className={styles.footer__mail}>CodeDirectoryApp@gmail.com</a>
                 </div>
             </div>

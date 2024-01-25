@@ -18,7 +18,11 @@ const Header = () => {
     const login = Cookies.get('login')
 
     useEffect(() => {
-        setUserLogin(login)
+        if(login) {
+            setUserLogin(login)
+        } else {
+            setUserLogin(null)
+        }
     }, [login])
 
     const pathname = usePathname()

@@ -537,7 +537,7 @@ Features:
 - Flexibility: Variables can take on values of different types.
 - Examples of languages: JavaScript, Python, Ruby.', 
 '/img/javascript/variableType.png', 0),
-('How do assignment/comparison/string/arithmetic/bitwise operators work?', 
+('How do assignment / comparison / string / arithmetic / bitwise operators work?', 
 'Assignment Operators:
 - Assignment operators are used to assign a value to a variable or an expression.
 Example: let x = 5; - here the value 5 is assigned to the variable x.
