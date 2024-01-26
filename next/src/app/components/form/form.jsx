@@ -21,6 +21,13 @@ export const SignInForm = () => {
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     const router = useRouter();
 
     return (
@@ -56,7 +63,8 @@ export const SignInForm = () => {
                     } catch(error) {
                         console.error('Error while submitting:', error)
                     } finally {
-                        setSubmitting(false)
+                        setSubmitting(false);
+                        scrollToTop()
                     }
                 }}>
                 <Form className={styles.form}>
@@ -93,6 +101,13 @@ export const SignUpForm = () => {
     const [emailExists, setEmailExists] = useState(false);
     const router = useRouter();
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -124,7 +139,8 @@ export const SignUpForm = () => {
                     } catch(error) {
                         console.error('Error while submitting:', error)
                     } finally {
-                        setSubmitting(false)
+                        setSubmitting(false);
+                        scrollToTop()
                     }
                 }}>
                 <Form className={styles.form} >
