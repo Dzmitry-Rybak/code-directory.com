@@ -108,9 +108,19 @@ export const signout = async () => {
             body: null,
             headers: { "Content-Type": "application/json" }
         })
-
-        cookies().delete('login');
-        cookies().delete('token');
+        const pastDate = new Date(0); // "Setting the expiration date in the past."
+        cookies().set({
+            name: 'login',
+            value: '',
+            path: '/',
+            expires: pastDate
+        });
+        cookies().set({
+            name: 'token',
+            value: '',
+            path: '/',
+            expires: pastDate
+        });
 
     } catch(error) {
         console.error('Server Error ', error)
@@ -128,8 +138,19 @@ export const deleteAccount = async () => {
             body: null,
             headers: headers
         })
-        cookies().delete('login');
-        cookies().delete('token');
+        const pastDate = new Date(0);  //"Setting the expiration date in the past."
+        cookies().set({
+            name: 'login',
+            value: '',
+            path: '/',
+            expires: pastDate
+        });
+        cookies().set({
+            name: 'token',
+            value: '',
+            path: '/',
+            expires: pastDate
+        });
     } catch (error) {
         console.error('Server Error ', error);
         throw new Error("Couldn't delete account")
