@@ -51,6 +51,13 @@ const Answers =  ({questionId, answerById, onMemorizedQuestion, onRepeatQuestion
         replace(`${pathname}?${params.toString()}`);
     }
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     const isAvailableImg = example_path !== 'not available' ? <img
                                                                     className={clsx(
                                                                         [styles.answers__image],
@@ -107,7 +114,9 @@ const Answers =  ({questionId, answerById, onMemorizedQuestion, onRepeatQuestion
                     <button 
                     className={`${stylesBtn.button}`}
                     data-action="Repeat"
-                    onClick={() => onRepeatQuestion(questionId)}>Repeat</button>
+                    onClick={() => {
+                        onRepeatQuestion(questionId);
+                        scrollToTop()}}>Repeat</button>
 
                     <button 
                     className={`${stylesBtn.button}`}
@@ -115,7 +124,9 @@ const Answers =  ({questionId, answerById, onMemorizedQuestion, onRepeatQuestion
                     data-action="Memorized"
                     onClick={(e) => {
                         onMemorizedQuestion(questionId);
-                        onChangeQuestion(e)
+                        scrollToTop()
+                        // error prom database "repeat: null" cause need await  from DB
+                        //onChangeQuestion(e)
                         }}>Memorized</button>
                 </div>
                 {!activeFullScreen ? 

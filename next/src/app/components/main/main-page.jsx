@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from 'next/navigation';
 
 import { QuestionsOverview } from "../quesitons/questions-overview";
 import { QuestionsView } from "../quesitons/questions-view";
@@ -11,6 +12,17 @@ import styles from '@/app/styles/home.module.scss';
 const MainPage = ({stack,language, questionId, questionsData, answerById, repeat, memorized}) => {
     const [repeatQuestion, setRepeatQuestion] = useState([]);
     const [memorizedQuestions, setMemorizedQuestions] = useState([]);
+
+    const {replace} = useRouter();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const params = new URLSearchParams();
+        params.set('stack', stack)
+        params.set('language', language)
+        replace(`${pathname}?${params.toString()}`);
+    }, [stack, language]);
+
 
     useEffect(() => {
         setRepeatQuestion(repeat);

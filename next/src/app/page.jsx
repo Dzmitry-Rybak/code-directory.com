@@ -24,8 +24,8 @@ export const metadata = {
 
 export default async function Home({searchParams}) {
 
-    const stack = searchParams?.stack?.toLowerCase() || 'react';
-    const language = searchParams?.language?.toLowerCase() || 'russian';
+    const stack = searchParams?.stack?.toLowerCase() || 'javascript';
+    const language = searchParams?.language?.toLowerCase() || 'english';
     
     const questionId = parseInt(searchParams?.id) || 1;
 
@@ -41,6 +41,7 @@ export default async function Home({searchParams}) {
     
     if (filtersRequest.message === 'Data received successfully' && filtersRequest.data) {
         const { data: { repeat: repeatData, memorized: memorizedData } } = filtersRequest;
+        // repeat = repeatData !== null ? repeatData : []; - if i want go next quest when click memorized
         repeat = repeatData;
         memorized = memorizedData;
     }
