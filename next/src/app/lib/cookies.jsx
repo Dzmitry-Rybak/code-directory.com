@@ -5,7 +5,7 @@ export async function setCookies (name, token, ...cookiesName) {
         cookies().set({
             name: cookiesName[0],
             value: name,
-            sameSite: 'Lax',
+            sameSite: 'None',
             secure: true,
             path: '/',
             
@@ -13,7 +13,7 @@ export async function setCookies (name, token, ...cookiesName) {
         cookies().set({
             name: cookiesName[1],
             value: token,
-            sameSite: 'Lax',
+            sameSite: 'None',
             secure: true,
             path: '/',
         });
