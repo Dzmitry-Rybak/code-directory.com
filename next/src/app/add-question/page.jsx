@@ -6,6 +6,13 @@ export const metadata = {
     title: 'Add question',
 };
 
+export const viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+}
+
 const QuestionAddFormPage = () => {
     return (
         <div className="center-container">
