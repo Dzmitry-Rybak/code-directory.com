@@ -2,6 +2,7 @@ import './styles/globals.css';
 import { Montserrat } from 'next/font/google';
 import Header from '@/app/components/header-nav/header-nav.jsx';
 import Footer from '@/app/components/footer/footer.jsx';
+import GoogleTag from './lib/googletag';
  
 export const metadata = {
     generator: 'Next.js',
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
   return (
     <AppStateProvider>
         <html lang="en" className={montserrat.variable}>
+            <GoogleTag/>
             <body>
             <Header/>
                 <main className='flexGrow'>
