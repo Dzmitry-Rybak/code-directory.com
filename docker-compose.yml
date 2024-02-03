@@ -19,7 +19,7 @@ services:
 
   api:
     build: ./api
-    # restart: always
+    restart: always
     ports:
       - '5000:5000'
     depends_on:
@@ -39,11 +39,11 @@ services:
     ports: 
       - '5433:5432'
     volumes:
-      - ./CD-DataBase.sql:/docker-entrypoint-initdb.d/CD-DataBase.sql
-      - postgres_data:/var/lib/postgresql/data
+      - ./CD-DataBase_final.sql:/docker-entrypoint-initdb.d/CD-DataBase.sql
+      - new_postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: codedirectory
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 23400
 volumes:
-  postgres_data:
+  new_postgres_data:
