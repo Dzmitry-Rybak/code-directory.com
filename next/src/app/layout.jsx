@@ -14,9 +14,17 @@ export const metadata = {
         template: '%s | Code Directory',
         default: 'Code Directory',
     },
-    description: 'Code-directory is a unique free online platform that provides an extensive catalog of questions and answers for popular programming languages. Study, mark, add questions, and create your learning experience.',
+    description: 'Code-directory is a unique free online platform that provides an extensive catalog of questions and answers for popular programming languages. Study, mark, add questions, and create your learning experience. Check out the top programming & coding questions with answers you can expect in 2024.',
     metadataBase: new URL('https://code-directory.com'),
-    keywords: ['Python', 'React', 'JavaScript', 'Git', 'programming', 'Interview'],
+    alternates: {
+      canonical: '/',
+      languages: {
+        'en': '/?language=english',
+        'ru': '/?language=russian',
+        'pl': '/?language=polish'
+      },
+    },
+    keywords: ['coding interview questions', 'coding interview questions and answers', 'coding interview',  'programming interview questions', 'React questions', 'JavaScript questions', 'Git questions', 'Вопросы на собеседовании по программированию', 'pytania na rozmowie programista'],
     referrer: 'origin-when-cross-origin',
     openGraph: {
         title: 'Code-Directory',
@@ -33,6 +41,15 @@ export const metadata = {
         locale: 'en_US',
         type: 'website',
       },
+    manifest: 'https://code-directory.com/manifest.json',
+    verification: {
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
+      other: {
+        me: ['CodeDirectoryApp@gmail.com'],
+      },
+    },
 };
 
 import { AppStateProvider } from './context.jsx';

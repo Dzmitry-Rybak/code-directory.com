@@ -1,0 +1,10 @@
+{
+  "name": "Code-Directory",
+  "short_name": "CD",
+  "icons": [{
+    "src": "/logo.svg",
+    "sizes": "192x192",
+    "type": "image/svg"
+  }],
+  "start_url": "/"
+}
