@@ -17,11 +17,10 @@ export const metadata = {
     description: 'Code-directory is a unique free online platform that provides an extensive catalog of questions and answers for popular programming languages. Study, mark, add questions, and create your learning experience. Check out the top programming & coding questions with answers you can expect in 2024.',
     metadataBase: new URL('https://code-directory.com'),
     alternates: {
-      canonical: '/',
       languages: {
-        'en': '/?language=english',
-        'ru': '/?language=russian',
-        'pl': '/?language=polish'
+        'en': 'https://code-directory.com/?stack=javascript&language=russian=english',
+        'ru': 'https://code-directory.com/?stack=javascript&language=russian',
+        'pl': 'https://code-directory.com/?stack=javascript&language=russian=polish'
       },
     },
     keywords: ['coding interview questions', 'coding interview questions and answers', 'coding interview',  'programming interview questions', 'React questions', 'JavaScript questions', 'Git questions', 'Вопросы на собеседовании по программированию', 'pytania na rozmowie programista'],
