@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:html="http://www.w3.org/1999/xhtml">
    <url>
-      <loc>https://code-directory.com/?stack=javascript&language=russian</loc>
+      <loc>https://code-directory.com/?stack=javascript&amp;language=russian</loc>
       <html:lang>ru</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=javascript&language=polish</loc>
+      <loc>https://code-directory.com/?stack=javascript&amp;language=polish</loc>
       <html:lang>pl</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=javascript&language=english</loc>
+      <loc>https://code-directory.com/?stack=javascript&amp;language=english</loc>
       <html:lang>en</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=react&language=russian</loc>
+      <loc>https://code-directory.com/?stack=react&amp;language=russian</loc>
       <html:lang>ru</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=react&language=polish</loc>
+      <loc>https://code-directory.com/?stack=react&amp;language=polish</loc>
       <html:lang>pl</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=react&language=english</loc>
-      <html:lang>en</html:lang>
-   </url>
-    <url>
-      <loc>https://code-directory.com/?stack=git&language=russian</loc>
-      <html:lang>ru</html:lang>
-   </url>
-   <url>
-      <loc>https://code-directory.com/?stack=git&language=polish</loc>
-      <html:lang>pl</html:lang>
-   </url>
-   <url>
-      <loc>https://code-directory.com/?stack=git&language=english</loc>
+      <loc>https://code-directory.com/?stack=react&amp;language=english</loc>
       <html:lang>en</html:lang>
    </url>
     <url>
-      <loc>https://code-directory.com/?stack=python&language=russian</loc>
+      <loc>https://code-directory.com/?stack=git&amp;language=russian</loc>
       <html:lang>ru</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=python&language=polish</loc>
+      <loc>https://code-directory.com/?stack=git&amp;language=polish</loc>
       <html:lang>pl</html:lang>
    </url>
    <url>
-      <loc>https://code-directory.com/?stack=python&language=english</loc>
+      <loc>https://code-directory.com/?stack=git&amp;language=english</loc>
+      <html:lang>en</html:lang>
+   </url>
+    <url>
+      <loc>https://code-directory.com/?stack=python&amp;language=russian</loc>
+      <html:lang>ru</html:lang>
+   </url>
+   <url>
+      <loc>https://code-directory.com/?stack=python&amp;language=polish</loc>
+      <html:lang>pl</html:lang>
+   </url>
+   <url>
+      <loc>https://code-directory.com/?stack=python&amp;language=english</loc>
       <html:lang>en</html:lang>
    </url>
    <url>
