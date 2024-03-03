@@ -44,5 +44,6 @@ Code-directory is ideal for preparing for technical interviews. The marking func
 
 - **GoDaddy:**
   - 🌐 The domain name provides a convenient and memorable address for users, making access to the platform more user-friendly. The domain code-directory.com was purchased on the GoDaddy platform.
+
 [Visit website](https://code-directory.com):
 ![og](https://github.com/Dzmitry-Rybak/code-directory.com/assets/113254270/732c247b-753d-45a2-b820-70d78434d52e)
