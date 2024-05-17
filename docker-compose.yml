@@ -39,7 +39,7 @@ services:
     ports: 
       - '5433:5432'
     volumes:
-      - ./CD-DataBase_final.sql:/docker-entrypoint-initdb.d/CD-DataBase.sql
+      - ./CD-DataBasev1.sql:/docker-entrypoint-initdb.d/CD-DataBase.sql
       - new_postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: codedirectory
