@@ -25,8 +25,8 @@ const Dashboard = () => {
         }, 6000)
     }
 
-    const handleDelete = () => {
-        deleteAccount();
+    const handleDelete = async () => {
+        await deleteAccount();
         Cookies.remove('login');
         Cookies.remove('token');
         setShowModal(true);
