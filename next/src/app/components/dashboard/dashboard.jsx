@@ -29,11 +29,7 @@ const Dashboard = () => {
         await deleteAccount();
         Cookies.remove('login');
         Cookies.remove('token');
-        setShowModal(true);
-        setTimeout(() => {
-            setShowModal(false);
-            router.push('/')
-        }, 6000)
+        router.push('/')
     }
 
     return (

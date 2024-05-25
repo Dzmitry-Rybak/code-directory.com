@@ -12,7 +12,7 @@ const gettingQuestions = async (req, res) => {
             const userId = decoded.user_id;
             sqlQuery += ` WHERE user_id IN (0, ${userId}) ORDER BY question_id `;
         } else {
-            sqlQuery += ` WHERE user_id = 0`;
+            sqlQuery += ` WHERE user_id = 0 ORDER BY question_id`;
         }
 
         const client = await pool.connect();
