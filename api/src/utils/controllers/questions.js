@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import secret from '../../config/config.js';
 
 const gettingQuestions = async (req, res) => {
-    let sqlQuery = `SELECT ROW_NUMBER() OVER (ORDER BY question_id) AS row_num, question_id, question, answer, example_path, user_id, filter FROM questions_${req.query.stack}_${req.query.language}`;
+    let sqlQuery = `SELECT CAST(ROW_NUMBER() OVER (ORDER BY question_id) AS INTEGER) AS row_num, question_id, question, answer, example_path, user_id, filter FROM questions_${req.query.stack}_${req.query.language}`;
    // let sqlQuery = `SELECT question, question_id, answer, example_path  FROM questions_${req.query.stack}_${req.query.language}`;
     try {
         if (req.headers.authorization) {

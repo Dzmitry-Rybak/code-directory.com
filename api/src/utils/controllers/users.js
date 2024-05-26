@@ -55,7 +55,6 @@ const signinUser = async (req, res) => {
     const { email, password } = req.body;
 
     const query = 'SELECT * FROM users WHERE email = $1';
-
     const result = await pool.query(query, [email]);
     if (result.rows.length === 0) {
         return res.status(401).json({success: false, message: 'There is no users with this email' });

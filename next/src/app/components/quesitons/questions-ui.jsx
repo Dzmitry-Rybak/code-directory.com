@@ -24,7 +24,7 @@ export const QuestionsVisible = ({questions, repeatQuestion, memorizedQuestions,
                         <p>No questions to review at the moment. Mark the questions you'd like to revisit in the future, and they will appear here for your convenience!💡</p>
                     ) :                     
                     questions.map(item => {
-                        const itemId = item.question_id;                  
+                        const itemId = item.row_num;
                         return <li 
                                     key={itemId}
                                     className= {clsx(
@@ -80,7 +80,7 @@ export const QuestionsHidden = ({questions, repeatQuestion, memorizedQuestions, 
                             ) :     
                             <ol>                                
                                 {questions.map(item => {
-                                    const itemId = item.question_id;    
+                                    const itemId = item.row_num;
                                     return <li 
                                                 key={itemId}
                                                 className= {clsx(

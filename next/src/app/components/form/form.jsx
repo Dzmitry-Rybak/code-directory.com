@@ -41,7 +41,6 @@ export const SignInForm = () => {
                 onSubmit={async (values, {setSubmitting})  => {
                     try {
                         const data = await fetchUser('signin', values);
-                        
                         if (data.message === 'sign in succesfull') {
                             await setCookies(data.user.name, data.token, 'login', 'token');
                             setShowModal(true);

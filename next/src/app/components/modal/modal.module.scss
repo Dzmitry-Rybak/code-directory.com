@@ -43,24 +43,45 @@
 }
 
 .modal__error {
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
     transition: all 0.3s;
     position: absolute;
-    width: 450px;
-    font-size: 14px;
-    padding: 20px;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    font-size: 12px;
+    padding: 6px;
     text-align: center;
-    background: rgba(217, 217, 217, 0.58);
-    border: 2px solid white;
+    background: rgba(234, 186, 12, 0.717);
+    border: 2px solid rgb(226, 116, 64);
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(6px);
-    border-radius: 17px;
+    border-radius: 10px;
+    h2 {
+        margin-bottom: 5px;
+    }
     &:hover {
         border: 2px solid black;
-        transform: scale(1.05);
+        transform: translateX(-50%) scale(1.05);
     }
+    &_enter {
+        opacity: 1;
+        visibility: visible;
+        top: 15px;
+        transition: all 400ms;
+    }
+    &_exit {
+        opacity: 0;
+        visibility: hidden;
+        top: -50px;
+        transition: all 400ms;
+    }   
     @media (max-width: 768px) {
-        width: 70%;
-        top: 50%;
-        font-size: 9px;
+        width: 250px;
+        top: 15px;
+        font-size: 10px;
     }
 }

@@ -28,10 +28,8 @@ export default async function Home({searchParams}) {
     const language = searchParams?.language?.toLowerCase() || 'english';
     
     const questionId = parseInt(searchParams?.id) || 1;
-
-    const [questionsData, answerData] = await Promise.all([
-        fetchQuestionsData(stack, language),
-        fetchAnswer(questionId, stack, language),
+    const [questionsData] = await Promise.all([
+        fetchQuestionsData(stack, language)
     ])
 
     const filtersRequest = await getFilteredQuestions(stack, language);
@@ -46,7 +44,11 @@ export default async function Home({searchParams}) {
         memorized = memorizedData;
     }
 
-    const answerById = answerData.data[0]
+    // const answerById = answerData.data[0];
+    const pickedQ = questionsData.data.findIndex(question => {
+        return question.row_num == questionId
+    })
+    const answerById = questionsData.data[pickedQ]
     
     if(!answerById){
         // If there is no question with the given ID, we will return the "not-found" page.

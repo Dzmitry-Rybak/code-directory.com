@@ -21,12 +21,21 @@ export const Modal = ({children, show}) => {
     )
 }
 
-export const ModalError = () => {
+export const ModalError = ({show}) => {
     return (
-        <div className={styles.modal__error}>
-            <h2>To unlock adding questions you just need to sign in</h2>
-            <br />
-            <h3>Please, <Link to="/logIn" className='link'>Sign In</Link></h3>
-        </div>
+        <CSSTransition
+        in={show}
+        timeout={5000}
+        classNames={{
+            enter: styles.modal__error_enter,
+            enterDone: styles.modal__error_enter_done,
+            exit: styles.modal__error_exit,
+            exitDone: styles.modal__error_exit_done,
+          }}>
+                <div className={styles.modal__error}>
+                    <h2>To access the ability to filter questions, please Sign In.</h2>
+                </div>
+    </CSSTransition>
+
     )
 }

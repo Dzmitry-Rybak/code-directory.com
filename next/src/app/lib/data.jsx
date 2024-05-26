@@ -67,12 +67,12 @@ export async function fetchQuestionsData (stack, language) {
 
 
 export async function fetchUser (url, values) {
+    noStore();
     const response = await fetch(`${_APIURL}/${url}`, {
         method: "POST", 
         body: JSON.stringify(values),
         headers: { "Content-Type": "application/json" }})
-    
-    const data = await response.json();
+        const data = await response.json();
 
     return data;
 }
@@ -93,11 +93,14 @@ export async function getFilteredQuestions(stack, language) {
 export async function postFilteredQuestons(stack, language, filter, data) {
     const {headers} = createHeadersWithToken();
     
-    await fetch(`${_APIURL}/updateFilter?stack=${stack}&language=${language}`, {
+    const request = await fetch(`${_APIURL}/updateFilter?stack=${stack}&language=${language}`, {
         method: "POST",
         body: JSON.stringify({filter: filter, array: data}),
         headers: headers
     })
+
+    const response = await request.json();
+    return response;
 }
 
 

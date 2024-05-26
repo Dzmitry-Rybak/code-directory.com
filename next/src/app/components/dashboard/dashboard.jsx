@@ -1,7 +1,6 @@
 "use client"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
 
 import { Modal } from '../modal/modal';
 import { signout, deleteAccount } from '../../lib/data';
@@ -16,8 +15,6 @@ const Dashboard = () => {
 
     const handleLogout = () => {
         signout();
-        Cookies.remove('login');
-        Cookies.remove('token');
         setShowModal(true)
         setTimeout(() => {
             setShowModal(false);
@@ -27,8 +24,6 @@ const Dashboard = () => {
 
     const handleDelete = async () => {
         await deleteAccount();
-        Cookies.remove('login');
-        Cookies.remove('token');
         router.push('/')
     }
 

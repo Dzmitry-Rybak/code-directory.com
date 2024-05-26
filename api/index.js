@@ -11,10 +11,9 @@ const PORT = process.env.PORT || 5000;
 
 configurePassport(app)
 
-app.use(cors());
-// app.use(cors({ -- более строгая настрйока
-//     origin: 'http://yourdomain.com'
-//   }));
+app.use(cors({
+    origin: 'http://code-directory.com'
+  }));
   
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

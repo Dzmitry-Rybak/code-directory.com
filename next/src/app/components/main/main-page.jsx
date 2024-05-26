@@ -6,12 +6,14 @@ import { QuestionsOverview } from "../quesitons/questions-overview";
 import { QuestionsView } from "../quesitons/questions-view";
 import Answers from "../answers/answers";
 import { postFilteredQuestons } from "../../lib/data";
+import { ModalError } from "../modal/modal";
 
 import styles from '@/app/styles/home.module.scss';
 
 const MainPage = ({stack,language, questionId, questionsData, answerById, repeat, memorized}) => {
     const [repeatQuestion, setRepeatQuestion] = useState([]);
     const [memorizedQuestions, setMemorizedQuestions] = useState([]);
+    const [isAuthorized, setIsAuthorized] = useState(false);
 
     const {replace} = useRouter();
     const pathname = usePathname();
@@ -42,8 +44,15 @@ const MainPage = ({stack,language, questionId, questionsData, answerById, repeat
         setRepeatQuestion(updatedRepeatQuestions);
         setMemorizedQuestions(updatedMemorizedQuestions);
 
-        await postFilteredQuestons(stack, language, 'repeat', updatedRepeatQuestions);
+        const resRepeat = await postFilteredQuestons(stack, language, 'repeat', updatedRepeatQuestions);
+        if(resRepeat.message === 'Unauthorized') {
+            setIsAuthorized(true);
+            setTimeout(() => {
+                setIsAuthorized(false)
+            }, 3000)
+        }
         await postFilteredQuestons(stack, language, 'memorized', updatedMemorizedQuestions);
+
     }
       
     const onMemorizedQuestion = async id => {
@@ -58,7 +67,14 @@ const MainPage = ({stack,language, questionId, questionsData, answerById, repeat
         setMemorizedQuestions(updatedMemorizedQuestions);
         setRepeatQuestion(updatedRepeatQuestions);
 
-        await postFilteredQuestons(stack, language, 'memorized', updatedMemorizedQuestions);
+        const resMemorized = await postFilteredQuestons(stack, language, 'memorized', updatedMemorizedQuestions);
+        if(resMemorized.message === 'Unauthorized') {
+            setIsAuthorized(true);
+            setTimeout(() => {
+                setIsAuthorized(false);
+            }, 3000)
+        }
+
         await postFilteredQuestons(stack, language, 'repeat', updatedRepeatQuestions);
     }
 
@@ -77,6 +93,11 @@ const MainPage = ({stack,language, questionId, questionsData, answerById, repeat
                     onRepeatQuestion={onRepeatQuestion}
                     onMemorizedQuestion={onMemorizedQuestion}/>                           
            </div>
+           <ModalError show={isAuthorized}/>
+           {/* <Modal show={isAuthorized}>
+                    <h2>Please</h2>
+                    <p>Sign up to save your filtered questions</p>
+            </Modal> */}
         </div>
     )
 }
