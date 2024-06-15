@@ -1,5 +1,5 @@
 import './styles/globals.css';
-import { Montserrat } from 'next/font/google';
+import { Montserrat, Kanit } from 'next/font/google';
 import Header from '@/app/components/header-nav/header-nav.jsx';
 import Footer from '@/app/components/footer/footer.jsx';
 import GoogleTag from './lib/googletag';
@@ -53,15 +53,17 @@ export const metadata = {
 
 import { AppStateProvider } from './context.jsx';
 
-const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
+const kanit = Kanit({ subsets: ['latin'], variable: '--font-kanit', weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] });
+
 
 
 export default function RootLayout({ children }) {
   return (
     <AppStateProvider>
-        <html lang="en" className={montserrat.variable}>
+        <html lang="en" className={kanit.variable}>
             <GoogleTag/>
-            <body>
+            <body className={montserrat.variable}>
             <Header/>
                 <main className='flexGrow'>
                     {children}

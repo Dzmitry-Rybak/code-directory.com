@@ -7,23 +7,69 @@ import clsx from 'clsx';
 import { useAppState } from '@/app/context';
 import Cookies from 'js-cookie';
 
-import {DropdownStack, DropdownTranslate} from '../dropdown-menu/dropdown-menu';
-
+import DropdownMenu from '../dropdown-menu/dropdown-menu';
+import { getCodeForPickerStack } from '@/app/lib/data';
 import styles from  '@/app/components/header-nav/header-nav.module.scss';
 
 
 const Header = () => {
-    const { burgerToggle, onToggleBurger } = useAppState();
+    const { isCodeAdded, onCodeAdded, burgerToggle, onToggleBurger } = useAppState();
     const [userLogin, setUserLogin] = useState(null);
-    const login = Cookies.get('login')
+    const login = Cookies.get('login');
+
+    const initialPickerStack = [
+        { label: 'JavaScript', value: 'javascript' },
+        { label: 'React', value: 'react' },
+        { label: 'Git', value: 'git' },
+        { label: 'Python', value: 'python' },
+    ];
+
+    const [pickerStack, setPickerStack] = useState(initialPickerStack);
+
+    const gettingPickerStackFromDB = async () => {
+        if (login) {
+            try {
+                const data = await getCodeForPickerStack();
+
+                if (data.stacks) {
+                    const newStacks = data.stacks.map(stack => ({
+                        label: stack.label,
+                        value: stack.value,
+                        language: stack.language
+                    }));
+                    
+                    // Проверка на уникальность данных перед добавлением
+                    setPickerStack(prevState => {
+                        const combinedStacks = [...prevState, ...newStacks];
+                        return combinedStacks.filter((stack, index, self) =>
+                            index === self.findIndex((t) => (
+                                t.value === stack.value
+                            ))
+                        );
+                    });
+
+                }
+            } catch (error) {
+                console.error("Error fetching picker stack from DB:", error);
+            }
+        } else {
+            setPickerStack(initialPickerStack);
+        }
+    };
 
     useEffect(() => {
+        gettingPickerStackFromDB();
+    }, [])
+
+    useEffect(() => {
+        gettingPickerStackFromDB();
+        onCodeAdded(false);
         if(login) {
             setUserLogin(login)
         } else {
             setUserLogin(null)
         }
-    }, [login])
+    }, [login, isCodeAdded])
 
     const pathname = usePathname()
 
@@ -58,25 +104,12 @@ const Header = () => {
                             className={styles.header__img} 
                             width="50" 
                             height="50" />
-                        <span>CodeDirectory</span>
+                        <span style={{fontSize: '18px'}}>CodeDirectory</span>
                     </Link>  
                 </li>
-
-                <li className={styles.header__item}>
-                    {pathname === '/' ? (
-                        <DropdownStack
-                        stackItems={['JavaScript', 'React', 'Git', 'Python']}
-                        name={'Coding stack'}/>
-                    ) :<span>Coding stack</span>}
-                </li>
                 
-                <li className={styles.header__item}>
-                {pathname === '/' ? (
-                    <DropdownTranslate
-                        languagesItems={['Russian', 'Polish', 'English']}
-                        name={'Language'}/>
-                ) : <span>Language</span>}
-                </li>
+                        <DropdownMenu pickerStack={pickerStack} pathname={pathname}/>
+                
                 
                 <li className={styles.header__item}>
                     <Link

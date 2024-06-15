@@ -21,7 +21,7 @@ export const QuestionsVisible = ({questions, repeatQuestion, memorizedQuestions,
             <div className={stylesQuestions.questions__list}>
                 <ol>
                     {questions.length === 0 ? (
-                        <p>No questions to review at the moment. Mark the questions you'd like to revisit in the future, and they will appear here for your convenience!💡</p>
+                        <p>Empty..💡</p>
                     ) :                     
                     questions.map(item => {
                         const itemId = item.row_num;

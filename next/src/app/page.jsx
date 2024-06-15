@@ -1,6 +1,7 @@
 import MainPage from "./components/main/main-page";
 import { Suspense } from "react";
 import { notFound } from 'next/navigation';
+import Link from "next/link";
 
 import { fetchQuestionsData, fetchAnswer, getFilteredQuestions } from "./lib/data";
 
@@ -29,8 +30,25 @@ export default async function Home({searchParams}) {
     
     const questionId = parseInt(searchParams?.id) || 1;
     const [questionsData] = await Promise.all([
-        fetchQuestionsData(stack, language)
-    ])
+        fetchQuestionsData(stack, language).then(data => {
+            return data
+        })
+    ]);
+
+    if(questionsData.message === 'The specified table does not exist') {
+        return (
+            <div className="center-container">
+            <div className="error-container">
+                <h1 style={{fontSize: 30}}>Oops...</h1>
+                <p style={{fontSize: 25, fontWeight: 'bold', marginBottom: 10}}>Unfortunately, we cannot find the programming language or translation you specified :(</p>
+                
+                <Link style={{textDecoration: 'underline', fontSize: 20, color: '#cab728'}} href="/">Go back</Link>
+                
+            </div>
+        </div>
+        )
+    }
+
 
     const filtersRequest = await getFilteredQuestions(stack, language);
 
@@ -44,7 +62,6 @@ export default async function Home({searchParams}) {
         memorized = memorizedData;
     }
 
-    // const answerById = answerData.data[0];
     const pickedQ = questionsData.data.findIndex(question => {
         return question.row_num == questionId
     })

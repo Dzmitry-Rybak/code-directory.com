@@ -123,6 +123,31 @@ CREATE TABLE public.users (
     password_hash text NOT NULL,
     created_at timestamp without time zone DEFAULT now()
 );
+ALTER TABLE public.users ADD COLUMN accessible_stacks jsonb[];
+
+CREATE TABLE public.access_codes (
+    code_id serial NOT NULL PRIMARY KEY,
+    code text NOT NULL UNIQUE,
+    label text NOT NULL,
+	value text NOT NULL,
+	language text NOT NULL
+);
+INSERT INTO public.access_codes (code, label, value, language) VALUES ('example key-code', 'Your name', 'DBname', 'english');
+
+CREATE TABLE public.questions_DBname_english (
+    question_id serial NOT NULL PRIMARY KEY,
+    question text NOT NULL,
+    answer text NOT NULL,
+    example_path text NOT NULL,
+    user_id integer,
+    filter text
+);
+
+INSERT INTO public.questions_DBname_english (question, answer, example_path, user_id)
+VALUES
+('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero ad pariatur ipsa! Ad rerum obcaecati sunt ullam culpa beatae tenetur consectetur asperiores velit quod minima odio animi reiciendis exercitationem, ipsam eaque quae dolore! Vel, facilis voluptas! Maxime, officia quae quis architecto fugiat vitae? Molestiae harum quo hic! Ullam dignissimos illo velit odit assumenda distinctio in perspiciatis odio, itaque beatae sed! Quisquam numquam, veniam consequuntur unde adipisci officia incidunt quod distinctio harum vero non ipsum, enim in quasi rem repellat sint itaque, perferendis at! Eveniet ipsa et labore impedit quo ut commodi blanditiis quibusdam, pariatur autem quisquam fuga provident, nostrum necessitatibus!', '/img/example/example1.png', 0),
+('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero ad pariatur ipsa! Ad rerum obcaecati sunt ullam culpa beatae tenetur consectetur asperiores velit quod minima odio animi reiciendis exercitationem, ipsam eaque quae dolore! Vel, facilis voluptas! Maxime, officia quae quis architecto fugiat vitae? Molestiae harum quo hic! Ullam dignissimos illo velit odit assumenda distinctio in perspiciatis odio, itaque beatae sed! Quisquam numquam, veniam consequuntur unde adipisci officia incidunt quod distinctio harum vero non ipsum, enim in quasi rem repellat sint itaque, perferendis at! Eveniet ipsa et labore impedit quo ut commodi blanditiis quibusdam, pariatur autem quisquam fuga provident, nostrum necessitatibus!', '/img/example/example1.png', 0),
+('Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero ad pariatur ipsa! Ad rerum obcaecati sunt ullam culpa beatae tenetur consectetur asperiores velit quod minima odio animi reiciendis exercitationem, ipsam eaque quae dolore! Vel, facilis voluptas! Maxime, officia quae quis architecto fugiat vitae? Molestiae harum quo hic! Ullam dignissimos illo velit odit assumenda distinctio in perspiciatis odio, itaque beatae sed! Quisquam numquam, veniam consequuntur unde adipisci officia incidunt quod distinctio harum vero non ipsum, enim in quasi rem repellat sint itaque, perferendis at! Eveniet ipsa et labore impedit quo ut commodi blanditiis quibusdam, pariatur autem quisquam fuga provident, nostrum necessitatibus!', '/img/example/example1.png', 0);
 
 INSERT INTO public.questions_javascript_english (question, answer, example_path, user_id)
 VALUES

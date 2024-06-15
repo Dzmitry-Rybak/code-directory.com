@@ -50,18 +50,23 @@ export async function fetchQuestionsData (stack, language) {
             body: null,
             headers: headers
         });
-
         if (!response.ok) {
             const status = response.status;
             const errorData = await response.json();
+            if(errorData.message === 'The specified table does not exist') {
+                return  errorData
+            }
             throw { status, message: errorData.message };
         }
 
         const data = await response.json();
         return data;
     } catch (error){
-        console.error('Database Error', error);
-        throw new Error('Failed to fetch questions data.');
+        if(error.message === 'The specified table does not exist' ) {
+        } else {
+            console.error('Database Error', error);
+            throw new Error('Failed to fetch questions data.');
+        }
     }
 }
 
@@ -136,5 +141,38 @@ export const deleteAccount = async () => {
     } catch (error) {
         console.error('Server Error ', error);
         throw new Error("Couldn't delete account")
+    }
+}
+
+export const handleVerifyCode = async (code) => {
+    const {headers} = createHeadersWithToken();
+    try {
+        const response = await fetch(`${_APIURL}/verify-code`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({ code }),
+        })
+
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const getCodeForPickerStack = async () => {
+    
+    const {headers} = createHeadersWithToken();
+
+    try {
+        const response = await fetch(`${_APIURL}/getcodestacks`, {
+            method: 'GET',
+            headers: headers
+        });
+
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.error(error);
     }
 }

@@ -44,10 +44,7 @@ export const SignInForm = () => {
                         if (data.message === 'sign in succesfull') {
                             await setCookies(data.user.name, data.token, 'login', 'token');
                             setShowModal(true);
-                            setTimeout(() => {
-                                setShowModal(false);
-                                router.push('/');
-                            }, 5000)
+                            router.push('/');
                         } else if (data.message === 'Password incorrect') {
                             setInvalidPassword(true);
                             setTimeout(() => {
@@ -90,7 +87,6 @@ export const SignInForm = () => {
             </Formik>
             <Modal show={showModal}>
                 <h2>Successfully!</h2>
-                <p>You can also add questions that interest you and begin your preparation.</p>
             </Modal>
         </>
     )
@@ -189,7 +185,6 @@ export const SignUpForm = () => {
             </Formik>
             <Modal show={showModal}>
                 <h2>Successfully!</h2>
-                <p>You can also add questions that interest you and begin your preparation.</p>
             </Modal>
         </>
     )

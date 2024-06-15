@@ -22,7 +22,7 @@ const MainPage = ({stack,language, questionId, questionsData, answerById, repeat
         const params = new URLSearchParams();
         params.set('stack', stack)
         params.set('language', language)
-        replace(`${pathname}?${params.toString()}`);
+        // replace(`${pathname}?${params.toString()}`);
     }, [stack, language]);
 
 

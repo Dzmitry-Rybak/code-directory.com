@@ -1,5 +1,5 @@
 import { CSSTransition } from 'react-transition-group';
-import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from './modal.module.scss';
 
@@ -7,7 +7,7 @@ export const Modal = ({children, show}) => {
     return (
         <CSSTransition
             in={show}
-            timeout={5000}
+            timeout={3000}
             classNames={{
                 enter: styles.modal_enter,
                 enterDone: styles.modal_enter_done,
@@ -33,7 +33,8 @@ export const ModalError = ({show}) => {
             exitDone: styles.modal__error_exit_done,
           }}>
                 <div className={styles.modal__error}>
-                    <h2>To access the ability to filter questions, please Sign In.</h2>
+                    <h2 style={{fontSize: '20px'}}>To access the ability to filter questions, please Sign In.</h2>
+                    <Image src='/icons/signin.png' alt='question' width={40} height={40}/> 
                 </div>
     </CSSTransition>
 

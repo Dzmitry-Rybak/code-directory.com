@@ -1,5 +1,9 @@
 .modal {
-    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
@@ -7,11 +11,12 @@
     top: -100px;
     left: 50%;
     transform: translateX(-50%);
-    width: 400px;
+    width: 450px;
+    height: 80px;
     font-size: 12px;
     padding: 6px;
     text-align: center;
-    background: rgba(217, 217, 217, 0.58);
+    background: rgba(30, 194, 52, 0.58);
     border: 2px solid rgb(10, 104, 10);
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(6px);
@@ -43,7 +48,7 @@
 }
 
 .modal__error {
-    z-index: 10;
+    z-index: 10000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;

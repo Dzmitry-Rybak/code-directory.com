@@ -7,12 +7,18 @@ const AppStateContext = createContext();
 export const AppStateProvider = ({ children }) => {
     const [burgerToggle, setBurgerToggle] = useState(false);
     
+    const [isCodeAdded, setIsCodeAdded] = useState(false);
+    
     const onToggleBurger = () => {
         setBurgerToggle(state => !state);
     }
 
+    const onCodeAdded = (state) => {
+        setIsCodeAdded(state);
+    }
+
     return (
-        <AppStateContext.Provider value={{ burgerToggle, onToggleBurger }}>
+        <AppStateContext.Provider value={{ burgerToggle, onToggleBurger, onCodeAdded, isCodeAdded }}>
             {children}
         </AppStateContext.Provider>
     );

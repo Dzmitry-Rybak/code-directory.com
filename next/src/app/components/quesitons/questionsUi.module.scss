@@ -90,7 +90,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
         margin-bottom: 20px;
         @media (max-width: 1200px) {
             margin-top: 0px;
@@ -98,15 +97,19 @@
         }
     }
     &__title {
+        font-size: 42px;
         color: #fff;
         margin-right: 10px;
+        @media (max-width: 576px) {
+            font-size: 32px;
+        }
     }
     &__descr {
         text-align: justify;
         color: $range;
         margin-bottom: 30px;
         width: 600px;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 30px;
         span {
             font-weight: bold;
@@ -122,7 +125,11 @@
             margin-bottom: 20px;
         }
         @media (max-width: 576px) {
-            font-size: 14px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        @media (max-width: 376px) {
+            font-size: 12px;
             line-height: 20px;
         }
     }
@@ -130,6 +137,7 @@
 
 .range {
     &__state {
+        font-size: 20px;
         margin-top: 10px;
         border: solid #000;
         border-radius: 10px;
@@ -145,6 +153,7 @@
         }
         @media (max-width: 576px) {
             width: 100%;
+            font-size: 18px;
         }
     }
     &__propgress {
