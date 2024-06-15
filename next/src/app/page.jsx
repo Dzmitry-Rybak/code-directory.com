@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { notFound } from 'next/navigation';
 import Link from "next/link";
 
-import { fetchQuestionsData, fetchAnswer, getFilteredQuestions } from "./lib/data";
+import { fetchQuestionsData, getFilteredQuestions } from "./lib/data";
 
 import { HomeSkeleton } from "./components/skeletons/skeletons";
 

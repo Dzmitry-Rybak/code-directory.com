@@ -17,25 +17,25 @@ const createHeadersWithToken = () => {
 }
 
 
-export async function fetchAnswer (questionId, stack, language) {
-    const stackRequest = stack.toLowerCase()
-    const languageRequest = language.toLowerCase()
-    try{
-        const response = await fetch(`${_APIURL}/getanswer?stack=${stackRequest}&language=${languageRequest}&id=${questionId}`);
+// export async function fetchAnswer (questionId, stack, language) {
+//     const stackRequest = stack.toLowerCase()
+//     const languageRequest = language.toLowerCase()
+//     try{
+//         const response = await fetch(`${_APIURL}/getanswer?stack=${stackRequest}&language=${languageRequest}&id=${questionId}`);
 
-        if (!response.ok) {
-            const status = response.status;
-            const errorData = await response.json();
-            throw { status, message: errorData.message };
-        }
+//         if (!response.ok) {
+//             const status = response.status;
+//             const errorData = await response.json();
+//             throw { status, message: errorData.message };
+//         }
         
-        const data = await response.json();
-        return data;
-    } catch (error){
-        console.error('Database Error', error);
-        throw new Error('Failer to fetch answer from data.');
-    }
-}
+//         const data = await response.json();
+//         return data;
+//     } catch (error){
+//         console.error('Database Error', error);
+//         throw new Error('Failer to fetch answer from data.');
+//     }
+// }
 
 
 export async function fetchQuestionsData (stack, language) {
@@ -63,6 +63,7 @@ export async function fetchQuestionsData (stack, language) {
         return data;
     } catch (error){
         if(error.message === 'The specified table does not exist' ) {
+            return  error
         } else {
             console.error('Database Error', error);
             throw new Error('Failed to fetch questions data.');
