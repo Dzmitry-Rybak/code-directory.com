@@ -67,13 +67,13 @@ const Dashboard = () => {
     return (
         <div className='center-container'>
             <div className={styles.logout__wrapper}>
-                <h2 style={{marginBottom: '20px'}}>Hello 👋</h2>
+                <h2>Hello 👋</h2>
                 <p>Code-directory is a free online platform. You can study, mark, add questions and create your own learning experience.🧠</p>
                 <div className={styles.logout__code}>
-                    <p style={{lineHeight: '25px'}}>The key code is basically a special password that gives you access to extra materials and resources for your specific course!</p>
+                    <p>The key code is basically a special password that gives you access to extra materials and resources for your specific course!</p>
                     <br></br>
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                        <Image src='/icons/oncomputer.png' alt='question' width={200} height={200}/> 
+                        <Image src='/icons/oncomputer.png' alt='question' width={200} height={200} className={styles.logout__image}/> 
                         <input
                             className={styles.dashboard__input}
                             value={code}
@@ -89,7 +89,7 @@ const Dashboard = () => {
                 <p style={{marginTop: 20, fontWeight: 'bold'}}>Contact us to find out more :)</p>
                 </div>
                 <br/><br/> 
-                <div style={{width: '90%', borderWidth: '2px', borderStyle: 'solid', padding: 20, borderRadius: 15, backgroundColor: '#83b9ff' }}>
+                <div className={styles.dashboard__contact}>
                     <p>You can contact us for more information:</p>
                     <a href="mailto:codedirectoryapp@gmail.com" className='footer__mail' style={{fontWeight: 'bold'}}>CodeDirectoryApp@gmail.com</a>
                 </div>
