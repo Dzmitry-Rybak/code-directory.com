@@ -12,8 +12,9 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/html:/usr/share/nginx/html
-      - /etc/letsencrypt/live/code-directory.com/fullchain.pem:/etc/nginx/cert/fullchain.pem
-      - /etc/letsencrypt/live/code-directory.com/privkey.pem:/etc/nginx/cert/privkey.pem
+      - ../certificate:/etc/nginx/cert
+      # - /etc/letsencrypt/live/code-directory.com/fullchain.pem:/etc/nginx/cert/fullchain.pem
+      # - /etc/letsencrypt/live/code-directory.com/privkey.pem:/etc/nginx/cert/privkey.pem
     environment:
       - NEXTJS_CONTAINER_IP=next # supplying environment vars
 
