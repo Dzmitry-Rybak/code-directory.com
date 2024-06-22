@@ -177,7 +177,7 @@ export const SignUpForm = () => {
                         /> 
                     </div>
                     <Checkbox name='terms'>
-                        I confirm that I've read and I agree to the site's <Link href="https://code-directory.com/Terms-and-Conditions_code-directory_Jen24.pdf" style={{textDecoration: "underline", color: "#7e4444"}}>Terms & Conditions</Link> *
+                        I confirm that I've read and I agree to the site's <Link href="https://code-directory.com/Terms-and-Conditions.html" style={{textDecoration: "underline", color: "#7e4444"}}>Terms & Conditions</Link> *
                     </Checkbox>
                     <button type="submit" className={buttonsStyles.submit__button}>SIGN UP</button>
                     <ErrorMessage className={styles.error} name='text' component="div"/>
